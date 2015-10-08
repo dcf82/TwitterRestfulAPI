@@ -1,0 +1,78 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/AppTheme">
+
+        <ProgressBar
+            android:id="@+id/waitWhileLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:direction="bottom"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/tweetBar">
+
+        <ListView
+            android:id="@+id/tweets"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/tweetBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="8dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/sendMsg"
+            android:textColorHint="@color/gray"
+            android:hint="@string/typeMessage"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:maxLength="140"
+            android:inputType="text"
+            android:imeOptions="actionSend"/>
+
+        <TextView
+            android:id="@+id/sendMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/tweet"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
